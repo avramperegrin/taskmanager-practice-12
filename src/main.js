@@ -1,3 +1,5 @@
+const TASK_COUNT = 3;
+
 const main = document.querySelector('.main');
 const siteHeaderElement = main.querySelector('.main__control');
 
@@ -355,7 +357,7 @@ const createLoadMoreTemplate = () => (
   `<button class="load-more" type="button">load more</button>`
 );
 
-const render = (container, template, place) => {
+const render = (container, template, place = 'beforeend') => {
   container.insertAdjacentHTML(place, template);
 };
 
@@ -366,10 +368,10 @@ render(main, createBoardTemplate(), 'beforeend');
 const boardElement = document.querySelector('.board');
 const taskListElement = boardElement.querySelector('.board__tasks');
 
-render(taskListElement, createTaskTemplate(), 'beforeend');
-render(taskListElement, createTaskTemplate(), 'beforeend');
-render(taskListElement, createTaskTemplate(), 'beforeend');
+for (let i = 0; i < TASK_COUNT; i++) {
+  render(taskListElement, createTaskTemplate(), 'beforeend');
+}
 
 render(taskListElement, createTaskEditTemplate(), 'afterbegin');
 
-render(boardElement,createLoadMoreTemplate(),'beforeend');
+render(boardElement, createLoadMoreTemplate(), 'beforeend');
