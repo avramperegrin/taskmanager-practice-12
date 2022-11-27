@@ -13,6 +13,6 @@ module.exports = {
       directory: path.join(__dirname, 'public'), // Где искать сборку
     },
     compress: true,
-    port:8080  // Веб адрес сборки
+    port: 8080  // Веб адрес сборки
   }
 };
